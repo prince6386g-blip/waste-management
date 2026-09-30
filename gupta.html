@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CleanCity - Waste Management System</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f7f3;
+    color: #18352a;
+}
+
+/* HEADER */
+header {
+    background: #167447;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    color: white;
+    margin: 4px;
+    padding: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    background: #0e5c36;
+    border-radius: 6px;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 18px;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #167447, #39a96b);
+    color: white;
+    border-radius: 18px;
+    padding: 40px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 4px 18px #00000012;
+    margin-bottom: 18px;
+}
+
+.card h2 {
+    color: #167447;
+    margin-bottom: 15px;
+}
+
+/* FORM */
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd8d1;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #167447;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* BUTTON */
+.btn {
+    background: #167447;
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.btn:hover {
+    background: #0e5c36;
+}
+
+.hidden {
+    display: none;
+}
+
+/* STATUS */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    background: #fff2bd;
+}
+
+/* ADMIN */
+.stat {
+    font-size: 32px;
+    font-weight: bold;
+    color: #167447;
+}
+
+/* TABLE */
+.table-box {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 11px;
+    border-bottom: 1px solid #e3e9e5;
+    text-align: left;
+}
+
+th {
+    background: #eaf5ee;
+}
+
+/* AWARENESS */
+.awareness {
+    background: #eef8f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #567;
+}
+
+/* MOBILE */
+@media(max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero {
+        padding: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ♻ CleanCity
+    </div>
+
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('report')">Report</button>
+        <button onclick="showPage('pickup')">Pickup</button>
+        <button onclick="showPage('track')">Track</button>
+        <button onclick="showPage('admin')">Admin</button>
+        <button onclick="showPage('awareness')">Awareness</button>
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <h1>Smart Waste Management</h1>
+
+        <p>
+            CleanCity is a centralized waste management platform
+            where citizens can report waste problems, request waste
+            pickup, track complaints and help administrators identify
+            waste hotspots.
+        </p>
+
+        <br>
+
+        <button class="btn" onclick="showPage('report')">
+            Report a Waste Issue
+        </button>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>📢 Report Issues</h2>
+
+            <p>
+                Report overflowing bins, garbage on roads,
+                missed collection or illegal dumping.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <h2>🚛 Pickup Requests</h2>
+
+            <p>
+                Request waste pickup from your location.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <h2>🔎 Complaint Tracking</h2>
+
+            <p>
+                Track your complaint using your complaint ID.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <h2>📊 Admin Dashboard</h2>
+
+            <p>
+                Admin can monitor complaints and waste hotspots.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOGIN ================= -->
+
+<section id="login" class="hidden">
+
+    <div class="card">
+
+        <h2>👤 User Registration / Login</h2>
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            id="userName"
+            placeholder="Enter your name"
+        >
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            id="userEmail"
+            placeholder="Enter email"
+        >
+
+        <button class="btn" onclick="loginUser()">
+            Login / Register
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REPORT ================= -->
+
+<section id="report" class="hidden">
+
+    <div class="card">
+
+        <h2>📢 Report Waste Issue</h2>
+
+        <label>Issue Type</label>
+
+        <select id="issueType">
+
+            <option>Overflowing Bin</option>
+
+            <option>Garbage on Road</option>
+
+            <option>Missed Collection</option>
+
+            <option>Illegal Dumping</option>
+
+            <option>Other</option>
+
+        </select>
+
+
+        <label>Location</label>
+
+        <input
+            type="text"
+            id="issueLocation"
+            placeholder="Enter area / street / landmark"
+        >
+
+
+        <label>Description</label>
+
+        <textarea
+            id="issueDescription"
+            placeholder="Describe the waste problem"
+        ></textarea>
+
+
+        <label>Priority</label>
+
+        <select id="priority">
+
+            <option>Normal</option>
+
+            <option>Urgent</option>
+
+        </select>
+
+
+        <button class="btn" onclick="submitComplaint()">
+            Submit Complaint
+        </button>
+
+
+        <p id="reportMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PICKUP ================= -->
+
+<section id="pickup" class="hidden">
+
+    <div class="card">
+
+        <h2>🚛 Waste Pickup Request</h2>
+
+
+        <label>Waste Type</label>
+
+        <select id="wasteType">
+
+            <option>Household Waste</option>
+
+            <option>Wet Waste</option>
+
+            <option>Dry Waste</option>
+
+            <option>E-Waste</option>
+
+            <option>Other</option>
+
+        </select>
+
+
+        <label>Pickup Location</label>
+
+        <input
+            type="text"
+            id="pickupLocation"
+            placeholder="Enter pickup address"
+        >
+
+
+        <label>Preferred Date</label>
+
+        <input
+            type="date"
+            id="pickupDate"
+        >
+
+
+        <label>Additional Notes</label>
+
+        <textarea
+            id="pickupNotes"
+            placeholder="Any additional information"
+        ></textarea>
+
+
+        <button class="btn" onclick="submitPickup()">
+            Request Pickup
+        </button>
+
+
+        <p id="pickupMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRACK ================= -->
+
+<section id="track" class="hidden">
+
+    <div class="card">
+
+        <h2>🔎 Complaint Tracking</h2>
+
+        <label>Complaint ID</label>
+
+        <input
+            type="text"
+            id="trackId"
+            placeholder="Example: WM1001"
+        >
+
+
+        <button class="btn" onclick="trackComplaint()">
+            Track Complaint
+        </button>
+
+
+        <div id="trackResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ADMIN ================= -->
+
+<section id="admin" class="hidden">
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h2>Total Complaints</h2>
+
+            <div class="stat" id="totalComplaints">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Pending</h2>
+
+            <div class="stat" id="pendingComplaints">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Resolved</h2>
+
+            <div class="stat" id="resolvedComplaints">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Pickup Requests</h2>
+
+            <div class="stat" id="totalPickups">
+                0
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>📋 Complaint Management</h2>
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Type</th>
+
+                        <th>Location</th>
+
+                        <th>Priority</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="complaintTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>📍 Waste Hotspots</h2>
+
+        <p>
+            Areas having more complaints can be given
+            priority for waste collection.
+        </p>
+
+        <div id="hotspots"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AWARENESS ================= -->
+
+<section id="awareness" class="hidden">
+
+    <div class="card">
+
+        <h2>♻ Waste Awareness</h2>
+
+
+        <div class="awareness">
+
+            <b>Wet Waste:</b>
+
+            Food scraps and biodegradable waste
+            should be separated for composting.
+
+        </div>
+
+
+        <div class="awareness">
+
+            <b>Dry Waste:</b>
+
+            Paper, cardboard, plastic and metal
+            should be separated from wet waste.
+
+        </div>
+
+
+        <div class="awareness">
+
+            <b>E-Waste:</b>
+
+            Old electronic items should be given
+            to proper recycling channels.
+
+        </div>
+
+
+        <div class="awareness">
+
+            <b>3R Rule:</b>
+
+            Reduce, Reuse and Recycle.
+
+        </div>
+
+
+        <div class="awareness">
+
+            <b>Clean Environment:</b>
+
+            Always use dustbins and avoid throwing
+            garbage on roads or public places.
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    CleanCity Waste Management System
+    <br>
+    Hackathon Project Prototype
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/*
+    DATABASE
+    ----------
+    For this prototype we use localStorage.
+    In a real project, this can be replaced
+    with MySQL / Firebase / MongoDB.
+*/
+
+
+let complaints =
+    JSON.parse(localStorage.getItem("complaints")) || [];
+
+
+let pickups =
+    JSON.parse(localStorage.getItem("pickups")) || [];
+
+
+let currentUser =
+    JSON.parse(localStorage.getItem("currentUser")) || null;
+
+
+
+/* ================= SAVE DATA ================= */
+
+function saveData() {
+
+    localStorage.setItem(
+        "complaints",
+        JSON.stringify(complaints)
+    );
+
+    localStorage.setItem(
+        "pickups",
+        JSON.stringify(pickups)
+    );
+}
+
+
+
+/* ================= PAGE NAVIGATION ================= */
+
+function showPage(pageId) {
+
+    let sections =
+        document.querySelectorAll("main section");
+
+    sections.forEach(function(section) {
+
+        section.classList.add("hidden");
+
+    });
+
+
+    document
+        .getElementById(pageId)
+        .classList.remove("hidden");
+
+
+    if (pageId === "admin") {
+
+        updateAdminDashboard();
+
+    }
+
+}
+
+
+
+/* ================= LOGIN ================= */
+
+function loginUser() {
+
+    let name =
+        document.getElementById("userName").value.trim();
+
+
+    let email =
+        document.getElementById("userEmail").value.trim();
+
+
+    if (name === "" || email === "") {
+
+        document.getElementById("loginMessage").innerHTML =
+            "Please enter your name and email.";
+
+        return;
+
+    }
+
+
+    currentUser = {
+
+        name: name,
+
+        email: email
+
+    };
+
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(currentUser)
+    );
+
+
+    document.getElementById("loginMessage").innerHTML =
+        "✅ Login successful. Welcome " + name + "!";
+
+}
+
+
+
+/* ================= CHECK USER ================= */
+
+function checkUser() {
+
+    if (currentUser === null) {
+
+        showPage("login");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+/* ================= SUBMIT COMPLAINT ================= */
+
+function submitComplaint() {
+
+    if (!checkUser()) {
+
+        return;
+
+    }
+
+
+    let type =
+        document.getElementById("issueType").value;
+
+
+    let location =
+        document.getElementById("issueLocation")
+        .value.trim();
+
+
+    let description =
+        document.getElementById("issueDescription")
+        .value.trim();
+
+
+    let priority =
+        document.getElementById("priority").value;
+
+
+    if (location === "") {
+
+        document.getElementById("reportMessage").innerHTML =
+            "❌ Please enter the location.";
+
+        return;
+
+    }
+
+
+    /*
+        Generate complaint ID
+    */
+
+    let id =
+        "WM" + (1001 + complaints.length);
+
+
+    let complaint = {
+
+        id: id,
+
+        type: type,
+
+        location: location,
+
+        description: description,
+
+        priority: priority,
+
+        status: "Pending",
+
+        user: currentUser.name,
+
+        date: new Date().toLocaleDateString()
+
+    };
+
+
+    complaints.push(complaint);
+
+
+    saveData();
+
+
+    document.getElementById("reportMessage").innerHTML =
+
+        "✅ Complaint submitted successfully!<br>" +
+
+        "Your Complaint ID is: <b>" +
+
+        id +
+
+        "</b><br>" +
+
+        "Please save this ID for tracking.";
+
+
+    document.getElementById("issueLocation").value = "";
+
+    document.getElementById("issueDescription").value = "";
+
+}
+
+
+
+/* ================= PICKUP REQUEST ================= */
+
+function submitPickup() {
+
+    if (!checkUser()) {
+
+        return;
+
+    }
+
+
+    let waste =
+        document.getElementById("wasteType").value;
+
+
+    let location =
+        document.getElementById("pickupLocation")
+        .value.trim();
+
+
+    let date =
+        document.getElementById("pickupDate").value;
+
+
+    let notes =
+        document.getElementById("pickupNotes")
+        .value.trim();
+
+
+    if (location === "" || date === "") {
+
+        document.getElementById("pickupMessage").innerHTML =
+            "❌ Please enter location and pickup date.";
+
+        return;
+
+    }
+
+
+    let id =
+        "PK" + (2001 + pickups.length);
+
+
+    let pickup = {
+
+        id: id,
+
+        waste: waste,
+
+        location: location,
+
+        date: date,
+
+        notes: notes,
+
+        status: "Requested",
+
+        user: currentUser.name
+
+    };
+
+
+    pickups.push(pickup);
+
+
+    saveData();
+
+
+    document.getElementById("pickupMessage").innerHTML =
+
+        "✅ Pickup request submitted!<br>" +
+
+        "Request ID: <b>" + id + "</b>";
+
+
+    document.getElementById("pickupLocation").value = "";
+
+    document.getElementById("pickupNotes").value = "";
+
+}
+
+
+
+/* ================= TRACK COMPLAINT ================= */
+
+function trackComplaint() {
+
+    let id =
+        document.getElementById("trackId")
+        .value.trim()
+        .toUpperCase();
+
+
+    let complaint =
+        complaints.find(function(item) {
+
+            return item.id === id;
+
+        });
+
+
+    let result =
+        document.getElementById("trackResult");
+
+
+    if (!complaint) {
+
+        result.innerHTML =
+
+            "<div class='card'>" +
+
+            "❌ Complaint not found.<br>" +
+
+            "Please check your Complaint ID." +
+
+            "</div>";
+
+        return;
+
+    }
+
+
+    result.innerHTML =
+
+        "<div class='card'>" +
+
+        "<h2>Complaint Details</h2>" +
+
+        "<p><b>ID:</b> " +
+        complaint.id +
+        "</p>" +
+
+        "<p><b>Type:</b> " +
+        complaint.type +
+        "</p>" +
+
+        "<p><b>Location:</b> " +
+        complaint.location +
+        "</p>" +
+
+        "<p><b>Priority:</b> " +
+        complaint.priority +
+        "</p>" +
+
+        "<p><b>Date:</b> " +
+        complaint.date +
+        "</p>" +
+
+        "<p><b>Status:</b> " +
+
+        "<span class='status'>" +
+
+        complaint.status +
+
+        "</span></p>" +
+
+        "</div>";
+
+}
+
+
+
+/* ================= ADMIN DASHBOARD ================= */
+
+function updateAdminDashboard() {
+
+    document.getElementById("totalComplaints")
+        .innerText = complaints.length;
+
+
+    document.getElementById("pendingComplaints")
+        .innerText = complaints.filter(function(item) {
+
+            return item.status !== "Resolved";
+
+        }).length;
+
+
+    document.getElementById("resolvedComplaints")
+        .innerText = complaints.filter(function(item) {
+
+            return item.status === "Resolved";
+
+        }).length;
+
+
+    document.getElementById("totalPickups")
+        .innerText = pickups.length;
+
+
+    let table =
+        document.getElementById("complaintTable");
+
+
+    table.innerHTML = "";
+
+
+    complaints.forEach(function(item, index) {
+
+        let row =
+            document.createElement("tr");
+
+
+        row.innerHTML =
+
+            "<td>" +
+            item.id +
+            "</td>" +
+
+            "<td>" +
+            item.type +
+            "</td>" +
+
+            "<td>" +
+            item.location +
+            "</td>" +
+
+            "<td>" +
+            item.priority +
+            "</td>" +
+
+            "<td>" +
+            item.status +
+            "</td>" +
+
+            "<td>" +
+
+            "<button class='btn' " +
+
+            "onclick='resolveComplaint(" +
+            index +
+            ")'>" +
+
+            (item.status === "Resolved"
+                ? "Resolved"
+                : "Mark Resolved") +
+
+            "</button>" +
+
+            "</td>";
+
+
+        table.appendChild(row);
+
+    });
+
+
+    updateHotspots();
+
+}
+
+
+
+/* ================= RESOLVE COMPLAINT ================= */
+
+function resolveComplaint(index) {
+
+    complaints[index].status =
+        "Resolved";
+
+
+    saveData();
+
+
+    updateAdminDashboard();
+
+}
+
+
+
+/* ================= WASTE HOTSPOTS ================= */
+
+function updateHotspots() {
+
+    let hotspotBox =
+        document.getElementById("hotspots");
+
+
+    let locations = {};
+
+
+    complaints.forEach(function(item) {
+
+        if (locations[item.location]) {
+
+            locations[item.location]++;
+
+        } else {
+
+            locations[item.location] = 1;
+
+        }
+
+    });
+
+
+    let sorted =
+        Object.entries(locations)
+        .sort(function(a, b) {
+
+            return b[1] - a[1];
+
+        });
+
+
+    if (sorted.length === 0) {
+
+        hotspotBox.innerHTML =
+            "<p>No complaint data available yet.</p>";
+
+        return;
+
+    }
+
+
+    hotspotBox.innerHTML = "";
+
+
+    sorted.slice(0, 5).forEach(function(item) {
+
+        let div =
+            document.createElement("div");
+
+
+        div.className = "awareness";
+
+
+        div.innerHTML =
+
+            "<b>📍 " +
+            item[0] +
+            "</b> — " +
+
+            item[1] +
+
+            " complaint(s)";
+
+
+        hotspotBox.appendChild(div);
+
+    });
+
+}
+
+
+/* ================= START WEBSITE ================= */
+
+showPage("home");
+
+</script>
+
+</body>
+</html>s
